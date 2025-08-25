@@ -1,33 +1,23 @@
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import * as React from "react";
+import {
+  Table,
+  TableBody,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TableCell,
+  Paper,
+} from "@mui/material";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}   
+import { rooms } from "@/data/rooms";
+import ChipCustom from "@/components/ChipCustom";
+import FilterTable from "@/components/FilterTable";
 
-const rows = [
-  createData('01/10/2024', 'Aster Room', 'Small', '', 4.0),
-  createData('01/10/2024', 'Aster Room','Small', '', 4.0),
-  createData('01/10/2024', 'Aster Room','Small', '', 4.0),
-  createData('01/10/2024', 'Aster Room','Small', '', 4.0),
-  createData('01/10/2024', 'Aster Room','Small', '', 4.0),
-  createData('01/10/2024', 'Aster Room','Small', '', 4.0),
-  createData('01/10/2024', 'Aster Room','Small', '', 4.0),
-  createData('01/10/2024', 'Aster Room','Small', '', 4.0),
-  createData('01/10/2024', 'Aster Room','Small', '', 4.0),
-  createData('01/10/2024', 'Aster Room','Small', '', 4.0),
-  createData('01/10/2024', 'Aster Room','Small', '', 4.0),
-//   createData('Eclair', 262, 16.0, 24, 6.0),
-];
 
 export default function BasicTable() {
   return (
+    <div>
+    <FilterTable/>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
@@ -40,22 +30,25 @@ export default function BasicTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rooms.map((row) => (
             <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              key={row.id}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.date}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.roomName}</TableCell>
+              <TableCell align="right">{row.roomType}</TableCell>
+              <TableCell align="right">
+                <ChipCustom data={ row } />
+              </TableCell>
+              <TableCell align="right">Tulisan Pake Icon</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   );
 }
