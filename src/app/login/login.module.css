@@ -11,7 +11,7 @@ body {
 .background {
   position: fixed;
   inset: 0;
-  background-image: url("../assets/meeting-room.png");
+  background-image: url("../../../public/assets/meeting-room.png");
   background-size: cover;
   background-position: center;
   z-index: -1;

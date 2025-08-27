@@ -1,6 +1,6 @@
-"use client";
-import styles from "./login.module.css";
-import bgImage from "../assets/meeting-room.png"; // untuk background image
+import "./login.module.css";
+import Image from "next/image";
+import bgImage from "../../../public/assets/"; // untuk background image
 import { useState } from "react";
 
 export default function Login() {
