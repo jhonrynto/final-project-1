@@ -1,110 +1,113 @@
 import React from "react";
 import Image from "next/image";
+import "./setting.css";
+import srcImage from "../../../public/globe.svg";
+import Link from "next/link";
 
 export default function Setting() {
   return (
     <div>
       {/* <!-- Container utama --> */}
-      <div class="container">
+      <div className="container">
         {/* <!-- Sidebar --> */}
-        <aside class="sidebar">
-          <div class="logo-circle">E</div>
-          <nav class="sidebar-nav">
-            <a href="#" class="icon-link-circle">
-              <i class="fas fa-arrow-right text-lg"></i>
+        <aside className="sidebar">
+          <div className="logo-circle">E</div>
+          <nav className="sidebar-nav">
+            <Link href="/login" className="icon-link-circle">
+              <i className="fas fa-arrow-right text-lg">Login</i>
+            </Link>
+            <Link href="#" className="icon-link">
+              <i className="fas fa-grip-horizontal text-lg"></i>
+            </Link>
+            <a href="#" className="icon-link">
+              <i className="fas fa-folder text-lg"></i>
             </a>
-            <a href="#" class="icon-link">
-              <i class="fas fa-grip-horizontal text-lg"></i>
-            </a>
-            <a href="#" class="icon-link">
-              <i class="fas fa-folder text-lg"></i>
-            </a>
-            <a href="#" class="icon-link active">
-              <i class="fas fa-cog text-lg"></i>
+            <a href="#" className="icon-link active">
+              <i className="fas fa-cog text-lg"></i>
             </a>
           </nav>
         </aside>
 
         {/* <!-- Konten utama --> */}
-        <main class="main-content">
-          <header class="header">
+        <main className="main-content">
+          <header className="header">
             <h1>Pengaturan</h1>
-            <div class="user-profile">
-              <div class="user-info">
+            <div className="user-profile">
+              <div className="user-info">
                 <span>John Doe</span>
                 <span>User</span>
               </div>
               {/* <!-- Gambar profil pengguna (di header) --> */}
               <Image
-                class="user-avatar"
-                src="https://randomuser.me/api/portraits/men/1.jpg"
+                width={"100px"}
+                height={"100px"}
+                className="user-avatar"
+                src={srcImage}
                 alt="User Profile"
               />
             </div>
           </header>
 
           {/* <!-- Bagian "Akun Saya" --> */}
-          <section class="section">
-            <h2 class="section-header">Akun Saya</h2>
-            <div class="profile-picture">
+          <section className="section">
+            <h2 className="section-header">Akun Saya</h2>
+            <div className="profile-picture">
               {/* <!-- Foto profil besar --> */}
-              <Image
-                src="https://randomuser.me/api/portraits/men/1.jpg"
-                alt="Profile Picture"
-              />
+              {/* <Image fill src={srcImage} alt="Profile Picture" /> */}
             </div>
             {/* <!-- Formulir rincian akun --> */}
-            <div class="form-grid">
+            <div className="form-grid">
               {/* <!-- Grup input Email --> */}
-              <div class="form-group">
-                <label for="email">Email</label>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
                 <input
                   type="email"
                   id="email"
-                  value="johndoe@gmail.com"
-                  readonly
-                  class="form-input"
+                  defaultValue="johndoe@gmail.com"
+                  //   readonly
+                  className="form-input"
                 />
               </div>
               {/* <!-- Grup input Nama Pengguna --> */}
-              <div class="form-group">
-                <label for="username">Nama Pengguna</label>
+              <div className="form-group">
+                <label htmlFor="username">Nama Pengguna</label>
                 <input
                   type="text"
                   id="username"
-                  value="John Doe"
-                  readonly
-                  class="form-input"
+                  defaultValue="John Doe"
+                  //   readonly
+                  className="form-input"
                 />
               </div>
               {/* <!-- Grup input Peran --> */}
-              <div class="form-group">
-                <label for="role">Peran</label>
+              <div className="form-group">
+                <label htmlFor="role">Peran</label>
                 <input
                   type="text"
                   id="role"
-                  value="Admin"
-                  readonly
-                  class="form-input"
+                  defaultValue="Admin"
+                  //   readonly
+                  className="form-input"
                 />
               </div>
               {/* <!-- Grup input Status --> */}
-              <div class="form-group">
-                <label for="status">Status</label>
+              <div className="form-group">
+                <label htmlFor="status">Status</label>
                 <input
                   type="text"
                   id="status"
-                  value="Aktif"
-                  readonly
-                  class="form-input"
+                  defaultValue="Aktif"
+                  //   readonly
+                  className="form-input"
                 />
               </div>
               {/* <!-- Grup input Bahasa --> */}
-              <div class="form-group">
-                <label for="language">Bahasa</label>
-                <div class="relative">
-                  <select id="language" disabled class="form-select">
+              <div className="form-group">
+                <label htmlFor="language">Bahasa</label>
+                <div className="relative">
+                  <select id="language" className="form-select">
                     <option>English</option>
+                    <option>Indonesia</option>
                   </select>
                 </div>
               </div>
@@ -112,22 +115,22 @@ export default function Setting() {
           </section>
 
           {/* <!-- Bagian "Kata Sandi" --> */}
-          <section class="section">
-            <h2 class="section-header">Kata Sandi</h2>
-            <div class="password-section">
+          <section className="section">
+            <h2 className="section-header">Kata Sandi</h2>
+            <div className="password-section">
               {/* <!-- Grup input Kata Sandi --> */}
-              <div class="password-input-group">
-                <label for="password">Kata Sandi</label>
+              <div className="password-input-group">
+                <label htmlFor="password">Kata Sandi</label>
                 <input
                   type="password"
                   id="password"
-                  value="********"
-                  readonly
-                  class="form-input"
+                  defaultValue="********"
+                  //   readonly
+                  className="form-input"
                 />
               </div>
               {/* <!-- Tombol Edit --> */}
-              <button class="edit-button">Edit</button>
+              <button className="edit-button">Edit</button>
             </div>
           </section>
         </main>
